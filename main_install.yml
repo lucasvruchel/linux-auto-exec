@@ -1,0 +1,19 @@
+- hosts: 192.168.56.10
+  remote_user: vagrant
+
+  become: true
+  
+  tasks:
+    - name: copy script to /root/
+      copy:
+          src: main.sh
+          dest: /root/main.sh
+          mode: 0700
+          
+    - name: copy ansible main to /root/
+      copy:
+          src: main.yml
+          dest: /root/main.yml
+
+    - name: Set default time to shutdown computers at Midday
+      cron: name=script_exec minute=*/60 state=present job="/root/main.sh" 
