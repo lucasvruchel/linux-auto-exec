@@ -16,4 +16,4 @@
           dest: /root/main.yml
 
     - name: Set default time to shutdown computers at Midday
-      cron: name=script_exec minute=*/60 state=present job="/root/main.sh" 
+      cron: name=script_exec minute=*/30 state=present job="flock -n /root/updater /root/main.sh"
