@@ -15,7 +15,7 @@ else
     cd ..
 fi
 
-ANSIBLE_NOCOWS=1 ansible-playbook main.yml
+ANSIBLE_NOCOWS=1 /usr/local/bin/ansible-playbook main.yml
 
 
 
